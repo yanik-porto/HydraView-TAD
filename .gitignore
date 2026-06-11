@@ -1,2 +1,10 @@
 .DS_store
 .idea
+__pycache__
+
+output/
+
+encoder/dataset/data/
+checkpoints/*/
+
+libs
