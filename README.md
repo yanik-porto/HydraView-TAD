@@ -53,7 +53,7 @@ If you find this code useful for your research, please cite the paper:
 ```bibtex
 @article{porto2026vitad,
   title={Improving Viewpoint-Invariance and Temporal Consistency for Action Detection},
-  author={Porto, Martins and Chalumeau, Demonceaux},
+  author={Porto, Yannick and Martins, Renato and Chalumeau, Thomas and Demonceaux, Cédric},
   journal={ICIP},
   year={2026}
 }
