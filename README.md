@@ -41,7 +41,19 @@ pip install -e git+https://github.com/Dao-AILab/causal-conv1d.git@v1.0.0#egg=cau
 
 ### Checkpoints
 
+Download the provided checkpoints from [here](checkpoints/README.md).
+
+Or directly with the command:
+
+`git clone https://huggingface.co/yaniknocigar/hydraview-tad checkpoints`
+
 ### Data
+
+Download the provided data from [here](encoder/dataset/data/README.md).
+
+Or directly with the command:
+
+`git clone https://huggingface.co/datasets/yaniknocigar/hydraview-tad encoder/dataset/data`
 
 ### Test
 
