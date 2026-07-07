@@ -174,17 +174,29 @@ class DatasetMV(Dataset):
         assocs = []
         group, camCurrent = self.get_group_from_name(data[idx]["frame_dir"])
 
+        # remove idx from group
+        idxList = groups[group].copy()
+        assert idx in idxList, f"no {idx} in {idxList}"
+        idxList.remove(idx)
+        if len(idxList) < (self.n_views - 1):
+            return assocs
+
         if self.respect_cams_order:
             if camCurrent not in self.map_assocs_samples:
                 return assocs
             mapAssocs = self.map_assocs_samples[camCurrent]
-            raise NotImplementedError()
+            for iv in range(self.n_views - 1):
+                for idxOther in idxList:
+                    groupOther, camOther = self.get_group_from_name(data[idxOther]["frame_dir"])
+                    assert groupOther == group, f"{group} vs {groupOther} for {data[idx]["frame_dir"]} and {data[idxOther]["frame_dir"]}"
+                    if camOther == mapAssocs[iv]:
+                        assocs.append((camOther, idxOther))
+                        break
+            if len(assocs) != self.n_views - 1:
+                print("problem while searching assocs")
+            return assocs
+
         else:
-            idxList = groups[group].copy()
-            assert idx in idxList, f"no {idx} in {idxList}"
-            idxList.remove(idx)
-            if len(idxList) < (self.n_views - 1):
-                return assocs
             # assert len(idxList) >= (self.n_views-1), f"{len(idxList)} < {(self.n_views-1)}"
             idxAssocs = random.sample(idxList, self.n_views - 1)
             for idxOther in idxAssocs:

@@ -57,7 +57,7 @@ Or directly with the command:
 
 ### Test
 
-`python test.py checkpoints/babel/babel_hydra_view_swgcn.yaml checkpoints/babel/split1_1view.pth --name=testset_split1_window_1view --gt_name=tad_labels`
+`python test.py checkpoints/babel/babel_hydra_view_swgcn.yaml checkpoints/babel/split1_1view.pth --gt_name=tad_labels`
 
 ## Citation
 If you find this code useful for your research, please cite the paper:
